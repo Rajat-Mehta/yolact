@@ -109,11 +109,11 @@ dataset_base = Config({
     'name': 'Base Dataset',
 
     # Training images and annotations
-    'train_images': './data/coco/images/',
+    'train_images': '/raid/Datasets/Radspot/coco/images/train2017',
     'train_info':   'path_to_annotation_file',
 
     # Validation images and annotations.
-    'valid_images': './data/coco/images/',
+    'valid_images': '/raid/Datasets/Radspot/coco/images/val2017',
     'valid_info':   'path_to_annotation_file',
 
     # Whether or not to load GT. If this is False, eval.py quantitative evaluation won't work.
@@ -140,8 +140,8 @@ coco2014_dataset = dataset_base.copy({
 coco2017_dataset = dataset_base.copy({
     'name': 'COCO 2017',
     
-    'train_info': './data/coco/annotations/instances_train2017.json',
-    'valid_info': './data/coco/annotations/instances_val2017.json',
+    'train_info': '/raid/Datasets/Radspot/coco/annotations/instances_train2017.json',
+    'valid_info': '/raid/Datasets/Radspot/coco/annotations/instances_val2017.json',
 
     'label_map': COCO_LABEL_MAP
 })
@@ -643,7 +643,7 @@ coco_base_config = Config({
 
     'maskiou_alpha': 1.0,
     'rescore_mask': False,
-    'rescore_bbox': False,
+    'rescore_bbox': True,
     'maskious_to_train': -1,
 })
 
@@ -785,7 +785,7 @@ yolact_plus_base_config = yolact_base_config.copy({
     'use_maskiou': True,
     'maskiou_net': [(8, 3, {'stride': 2}), (16, 3, {'stride': 2}), (32, 3, {'stride': 2}), (64, 3, {'stride': 2}), (128, 3, {'stride': 2})],
     'maskiou_alpha': 25,
-    'rescore_bbox': False,
+    'rescore_bbox': True,
     'rescore_mask': True,
 
     'discard_mask_area': 5*5,
